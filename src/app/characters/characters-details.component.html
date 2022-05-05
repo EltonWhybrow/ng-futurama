@@ -1,1 +1,12 @@
-<p>characters-details works!</p>
+<div *ngIf="characterDetails$ | async as details">
+  <h1> Name:{{details.name.first}} {{details.name.middle}} {{details.name.last}}</h1>
+  <p>Image: <img [src]="details.images.main" alt="{{details.name.first}}" width="auto" height="200"></p>
+  <p> Gender:{{details.gender}}</p>
+  <p> Species:{{details.species}}</p>
+  <p *ngIf="details.homePlanet"> Homeplanet:{{details.homePlanet}}</p>
+  <p> Occupation:{{details.occupation}}</p>
+
+  <div *ngFor="let saying of details.sayings">
+    {{saying}}
+  </div>
+</div>
