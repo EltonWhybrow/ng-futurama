@@ -1,1 +1,16 @@
-<p>dashboard works!</p>
+<h2 class="mat-headline">Home</h2>
+<p class="mat-subheading-2">Information about the show
+</p>
+<div *ngIf="showData$ | async as show">
+  <p class="mat-subheading-1 mat-body-2">Description:</p>
+  <p class="mat-body-1">{{show.synopsis}}</p>
+  <p class="mat-subheading-1 mat-body-2">Years on air:</p>
+  <p class="mat-body-1">{{show.yearsAired}}</p>
+
+  <p class="mat-subheading-1 mat-body-2">Creators:</p>
+  <div *ngFor="let creator of show.creators">
+    <a href="{{creator.url}}" target="_blank">{{creator.name}}</a>
+  </div>
+
+  <!-- <p>{{show | json}}</p> -->
+</div>
