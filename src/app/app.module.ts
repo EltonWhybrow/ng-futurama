@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { MaterialModule } from './core/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BgColorDirective } from './shared/bg-color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    routingComponents
+    routingComponents,
+    BgColorDirective
   ],
   imports: [
     BrowserModule,

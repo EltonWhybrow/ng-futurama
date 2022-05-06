@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 
 import { IShowInfo } from './show.interface';
 import { ICharacter } from './character.interface';
+import { IQuestions } from './questions.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,16 @@ export class HttpService {
   BASE_API = 'https://api.sampleapis.com/futurama/';
 
   constructor(private http: HttpClient) { }
+
+
+  getQuestions(): Observable<IQuestions[]> {
+    return this.http.get<IQuestions[]>(this.BASE_API + '/questions')
+      .pipe(
+        map(questions => questions),
+        tap(questions => console.log("questions: " + JSON.stringify(questions))),
+        catchError(this.handleError<any[]>([]))
+      );
+  }
 
   getShowInfo(): Observable<IShowInfo> {
     return this.http.get<IShowInfo[]>(this.BASE_API + '/info')
@@ -42,15 +53,6 @@ export class HttpService {
         catchError(this.handleError<any>([]))
       );
   }
-
-  // getCharacterName(id: number): Observable<any> {
-  //   return this.http.get<any>(this.BASE_API + '/characters/' + id)
-  //     .pipe(
-  //       map((res) => { return { fullname: res.name.first + ' ' + res.name.middle + ' ' + res.name.last }; }),
-  //       tap(res => console.log("name:>>>>> " + res.fullname)),
-  //       catchError(this.handleError<any>([]))
-  //     );
-  // }
 
   private handleError<T>(result = {} as T) {
     return (error: HttpErrorResponse): Observable<T> => {

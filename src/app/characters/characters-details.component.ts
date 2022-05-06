@@ -17,7 +17,6 @@ export class CharactersDetailsComponent implements OnInit {
 
   characterId: any;
   characterDetails$: Observable<ICharacter> | undefined;
-  // characterName$: Observable<any> | undefined;;
 
   constructor(private http: HttpService, private route: ActivatedRoute) { }
 
@@ -29,6 +28,5 @@ export class CharactersDetailsComponent implements OnInit {
     })
 
     this.characterDetails$ = this.http.getCharacterDetails(this.characterId);
-    // this.characterName$ = this.http.getCharacterName(this.characterId);
   }
 }
