@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { catchError, tap, map } from 'rxjs/operators';
+import { catchError, tap, map, filter } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 import { IShowInfo } from './show.interface';
@@ -42,6 +42,15 @@ export class HttpService {
         catchError(this.handleError<any>([]))
       );
   }
+
+  // getCharacterName(id: number): Observable<any> {
+  //   return this.http.get<any>(this.BASE_API + '/characters/' + id)
+  //     .pipe(
+  //       map((res) => { return { fullname: res.name.first + ' ' + res.name.middle + ' ' + res.name.last }; }),
+  //       tap(res => console.log("name:>>>>> " + res.fullname)),
+  //       catchError(this.handleError<any>([]))
+  //     );
+  // }
 
   private handleError<T>(result = {} as T) {
     return (error: HttpErrorResponse): Observable<T> => {

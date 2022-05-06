@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const material = [
   // MatSliderModule
@@ -13,7 +14,8 @@ const material = [
   MatIconModule,
   MatButtonModule,
   MatGridListModule,
-  MatCardModule
+  MatCardModule,
+  LayoutModule
 ]
 
 
