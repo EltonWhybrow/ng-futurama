@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { catchError, tap, map, filter } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 import { IShowInfo } from './show.interface';
@@ -17,7 +17,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-
+  // TODO: implement as Angualar resolvers if time to enhance user experience
   getQuestions(): Observable<IQuestions[]> {
     return this.http.get<IQuestions[]>(this.BASE_API + '/questions')
       .pipe(

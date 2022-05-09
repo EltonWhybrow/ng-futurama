@@ -6,7 +6,7 @@
   <mat-card *ngIf="questionList else loading">
 
     <div class=" score">
-      <button mat-fab color="accent" aria-label="previous question">
+      <button mat-fab [color]="score > 0 ? 'accent' : 'primary'" aria-label="current score">
         {{score}}
       </button>
     </div>
