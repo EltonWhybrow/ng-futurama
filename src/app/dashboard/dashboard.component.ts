@@ -6,13 +6,11 @@ import { IShowInfo } from '../shared/show.interface';
 
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
-  showData$: Observable<IShowInfo> | undefined;
+  showData$: Observable<IShowInfo[]> | undefined;
 
   constructor(private httpService: HttpService) { }
 

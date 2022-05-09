@@ -5,7 +5,6 @@ import { ICharacter } from '../shared/character.interface';
 import { HttpService } from '../shared/http-service.service';
 
 @Component({
-  selector: 'app-characters-details',
   templateUrl: './characters-details.component.html',
   styles: [`
     .secondary {

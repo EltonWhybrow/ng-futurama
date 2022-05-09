@@ -50,7 +50,6 @@ export class CharactersComponent implements OnInit {
           this.cols = 1
         }
       });
-
   }
 
   getCharacterDetails(userId: number) {

@@ -9,7 +9,6 @@ import { MatCardModule } from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
 
 const material = [
-  // MatSliderModule
   MatToolbarModule,
   MatIconModule,
   MatButtonModule,

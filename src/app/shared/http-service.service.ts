@@ -13,7 +13,7 @@ import { IQuestions } from './questions.interface';
 })
 export class HttpService {
 
-  BASE_API = 'https://api.sampleapis.com/futurama/';
+  BASE_API = 'https://api.sampleapis.com/futurama';
 
   constructor(private http: HttpClient) { }
 
@@ -27,10 +27,10 @@ export class HttpService {
       );
   }
 
-  getShowInfo(): Observable<IShowInfo> {
+  getShowInfo(): Observable<IShowInfo[]> {
     return this.http.get<IShowInfo[]>(this.BASE_API + '/info')
       .pipe(
-        map(info => info[0]),
+        map(info => info),
         tap(info => console.log("info: " + JSON.stringify(info))),
         catchError(this.handleError<any>([]))
       );

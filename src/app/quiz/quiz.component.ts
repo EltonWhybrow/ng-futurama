@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpService } from '../shared/http-service.service';
-import { IQuestions } from '../shared/questions.interface';
 
 @Component({
   templateUrl: './quiz.component.html',

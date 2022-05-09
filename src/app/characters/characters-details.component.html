@@ -1,14 +1,9 @@
-<!-- <ng-container *ngIf="characterName$ | async as characterName">
-  <h2 class="mat-headline">{{ characterName.fullname }}: Details</h2>
-</ng-container> -->
-
 <ng-container *ngIf="characterDetails$ | async as details else loading">
   <mat-card>
 
     <button routerLink="/characters" mat-mini-fab color="primary" aria-label="back to characters">
       <mat-icon> arrow_back</mat-icon>
     </button>
-
 
     <mat-grid-list cols="2" rowHeight="200px" gutterSize="0">
 
@@ -53,6 +48,6 @@
 
 <ng-template #loading>
   <div class="">
-    Loading...
+    Loading details...
   </div>
 </ng-template>
