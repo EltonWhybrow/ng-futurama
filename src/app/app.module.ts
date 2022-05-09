@@ -6,20 +6,21 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { MaterialModule } from './core/material.module';
-import { CharactersDetailsComponent } from './characters/characters-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BgColorDirective } from './shared/bg-color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     routingComponents,
-    CharactersDetailsComponent,
-
+    BgColorDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule
   ],
   providers: [],
