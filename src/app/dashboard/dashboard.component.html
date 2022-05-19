@@ -2,7 +2,7 @@
 <p class="mat-subheading-2">Information about the show
 </p>
 
-<ng-container *ngIf="showData$ | async as show">
+<ng-container *ngIf="showData$ | async as show else loading">
   <mat-card>
     <p class="mat-subheading-1 mat-body-2">Description:</p>
     <p class="mat-body-1">{{show[0].synopsis}}</p>
@@ -15,3 +15,6 @@
     </div>
   </mat-card>
 </ng-container>
+<ng-template #loading>
+  Loading...
+</ng-template>

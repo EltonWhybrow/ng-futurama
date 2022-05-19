@@ -21,11 +21,8 @@ export class CharactersDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      let id = this.route.snapshot.paramMap.get('id');
-      this.characterId = id;
-      console.log('characterID', this.characterId);
+      this.characterId = this.route.snapshot.paramMap.get('id');
     })
-
     this.characterDetails$ = this.http.getCharacterDetails(this.characterId);
   }
 }

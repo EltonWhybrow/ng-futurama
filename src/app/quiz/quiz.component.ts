@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../shared/http-service.service';
+import { IQuestions } from '../shared/questions.interface';
 
 @Component({
   templateUrl: './quiz.component.html',
@@ -9,7 +10,7 @@ export class QuizComponent implements OnInit {
 
   correctAnwser: number = 0;
   incorrectAnswer: number = 0;
-  public questionList: any = [];
+  public questionList: IQuestions[] = [];
   public currentQuestion: number = 0;
   public score: number = 0;
   quizComplete: boolean = false;
@@ -34,10 +35,12 @@ export class QuizComponent implements OnInit {
   }
 
   answer(currentNo: number, option: any) {
+    // is quiz complete
     if (currentNo + 1 === this.questionList.length) {
       this.quizComplete = true;
-      console.log('quizComplete should be true', this.quizComplete);
+      return;
     }
+    // correct anwser
     if (option === this.questionList[currentNo].correctAnswer) {
       this.score += 1;
       this.correctAnwser++;
@@ -45,7 +48,9 @@ export class QuizComponent implements OnInit {
         this.currentQuestion++;
       }, 500);
 
-    } else {
+    }
+    // incorrect anwser
+    else {
       setTimeout(() => {
         this.currentQuestion++;
         this.incorrectAnswer++;

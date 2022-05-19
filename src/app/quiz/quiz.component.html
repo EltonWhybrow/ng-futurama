@@ -2,8 +2,8 @@
 <p class="mat-subheading-2">Test your knowledge on Futurama
 </p>
 
-<div>
-  <mat-card *ngIf="questionList else loading">
+<ng-container *ngIf="questionList else loading">
+  <mat-card>
 
     <div class=" score">
       <button mat-fab [color]="score > 0 ? 'accent' : 'primary'" aria-label="current score">
@@ -18,8 +18,9 @@
 
       <div class="answers">
         <ol *ngFor="let option of questionList[currentQuestion]?.possibleAnswers">
-          <li (click)="answer(currentQuestion, option)">
-            <button appBgColor [isCorrect]="option === this.questionList[currentQuestion].correctAnswer" color="primary"
+          <li>
+            <button (click)="answer(currentQuestion, option)" appBgColor
+              [isCorrect]="option === this.questionList[currentQuestion].correctAnswer" color="primary"
               mat-stroked-button>
               {{option}}
             </button>
@@ -52,9 +53,8 @@
 
   </mat-card>
 
-  <ng-template #loading>
-    <div class="">
-      Loading quiz...
-    </div>
-  </ng-template>
-</div>
+</ng-container>
+
+<ng-template #loading>
+  Loading quiz...
+</ng-template>

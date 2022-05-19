@@ -21,8 +21,8 @@ export class HttpService {
   getQuestions(): Observable<IQuestions[]> {
     return this.http.get<IQuestions[]>(this.BASE_API + '/questions')
       .pipe(
-        map(questions => questions),
-        tap(questions => console.log("questions: " + JSON.stringify(questions))),
+        // map(questions => questions),
+        // tap(questions => console.log("questions: " + JSON.stringify(questions))),
         catchError(this.handleError<any[]>([]))
       );
   }
@@ -30,8 +30,8 @@ export class HttpService {
   getShowInfo(): Observable<IShowInfo[]> {
     return this.http.get<IShowInfo[]>(this.BASE_API + '/info')
       .pipe(
-        map(info => info),
-        tap(info => console.log("info: " + JSON.stringify(info))),
+        // map(info => info),
+        // tap(info => console.log("info: " + JSON.stringify(info))),
         catchError(this.handleError<any>([]))
       );
   }
@@ -39,8 +39,8 @@ export class HttpService {
   getCharacters(): Observable<ICharacter[]> {
     return this.http.get<ICharacter[]>(this.BASE_API + '/characters')
       .pipe(
-        map(characters => characters),
-        tap(characters => console.log("characters: " + JSON.stringify(characters))),
+        // map(characters => characters),
+        // tap(characters => console.log("characters: " + JSON.stringify(characters))),
         catchError(this.handleError<any[]>([]))
       );
   }
@@ -48,8 +48,8 @@ export class HttpService {
   getCharacterDetails(id: number): Observable<ICharacter> {
     return this.http.get<ICharacter>(this.BASE_API + '/characters/' + id)
       .pipe(
-        map(details => details),
-        tap(details => console.log("details: " + JSON.stringify(details))),
+        // map(details => details),
+        // tap(details => console.log("details: " + JSON.stringify(details))),
         catchError(this.handleError<any>([]))
       );
   }
